@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "photo-cleaner"
+version = "0.1.0"
+description = "Finds clutter in Google Photos Takeout exports and builds a review report"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = ["pillow>=10", "numpy>=1.24"]
+
+[project.optional-dependencies]
+heic = ["pillow-heif>=0.16"]
+dev = ["pytest>=8", "scikit-image>=0.22"]
+
+[project.scripts]
+photo-cleaner = "photo_cleaner.cli:main"
+
+[tool.setuptools]
+packages = ["photo_cleaner"]
